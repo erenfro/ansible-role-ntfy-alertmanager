@@ -4,6 +4,7 @@
     repo: https://git.xenrox.net/~xenrox/ntfy-alertmanager
     dest: "{{ ansible_env.HOME }}/src/ntfy-alertmanager"
     version: "{{ ntfy_alertmanager_version }}"
+    force: true
   register: git_repository
 
 - name: Create the required version.txt file for building ntfy-alertmanager
@@ -25,6 +26,7 @@
     dest: /usr/local/bin/
     mode: 0755
   become: true
+  notify: restart ntfy-alertmanager
 
 - name: Ensure configuration directory for ntfy-alertmanager
   ansible.builtin.file:
@@ -38,6 +40,7 @@
     src: config.j2
     dest: /etc/ntfy-alertmanager/config
   become: true
+  notify: restart ntfy-alertmanager
 
 - name: Copy systemd service file for ntfy-alertmanager
   ansible.builtin.copy:

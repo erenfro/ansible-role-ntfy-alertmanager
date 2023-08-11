@@ -1,0 +1,4 @@
+---
+- name: restart ntfy-alertmanager 
+  service: name=ntfy-alertmanager state=restarted
+  become: true
