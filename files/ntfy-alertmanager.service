@@ -4,8 +4,7 @@ After=network.target
 Wants=ntfy.service
 
 [Service]
-User=ntfy
-Group=ntfy
+User=nobody
 ExecStart=/usr/local/bin/ntfy-alertmanager
 
 [Install]
