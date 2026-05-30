@@ -1,28 +1,7 @@
 ---
-- name: Clone git repository
-  ansible.builtin.git:
-    repo: https://git.xenrox.net/~xenrox/ntfy-alertmanager
-    dest: "{{ ansible_env.HOME }}/src/ntfy-alertmanager"
-    version: "{{ ntfy_alertmanager_version }}"
-    force: true
-  register: git_repository
-
-- name: Create the required version.txt file for building ntfy-alertmanager
-  ansible.builtin.shell:
-    chdir: "{{ ansible_env.HOME }}/src/ntfy-alertmanager"
-    cmd: git describe --long > version.txt
-  when: git_repository.changed
-
-- name: Build ntfy-alertmanager
-  ansible.builtin.command:
-    chdir: "{{ ansible_env.HOME }}/src/ntfy-alertmanager"
-    cmd: "{{ ansible_local.golang.general.home }}/bin/go build ."
-  when: git_repository.changed
-
 - name: Install ntfy-alertmanager binary
   ansible.builtin.copy:
-    remote_src: true
-    src: "{{ ansible_env.HOME }}/src/ntfy-alertmanager/ntfy-alertmanager"
+    src: build/ntfy-alertmanager
     dest: /usr/local/bin/
     mode: 0755
   become: true

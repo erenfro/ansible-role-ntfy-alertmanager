@@ -1,6 +1,6 @@
 ---
-ntfy_alertmanager_version: v0.2.0
-ntfy_alertmanager_base_url: http://127.0.0.1:8080
-ntfy_alertmanager_http_address: "127.0.0.1:8080"
+ntfy_alertmanager_version: v1.0.0
+ntfy_alertmanager_base_url: http://127.0.0.1:8082
+ntfy_alertmanager_http_address: "127.0.0.1:8082"
 ntfy_alertmanager_topic_name: alertmanager-alerts
 ntfy_base_url: http://localhost
