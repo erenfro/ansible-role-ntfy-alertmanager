@@ -20,13 +20,10 @@ password {{ ntfy_alertmanager_password }}
 labels {
     order "severity,instance"
 
-#   severity "critical" {
-#       priority 5
-#       tags "rotating_light"
-#       icon "https://foo.com/critical.png"
-#       # Forward messages which severity "critical" to the specified email address.
-#       email-address foo@bar.com
-#   }
+    severity "critical" {
+        priority 5
+        tags "rotating_light"
+    }
 
     severity "info" {
         priority 1

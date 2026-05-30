@@ -4,3 +4,5 @@ ntfy_alertmanager_base_url: http://127.0.0.1:8082
 ntfy_alertmanager_http_address: "127.0.0.1:8082"
 ntfy_alertmanager_topic_name: alertmanager-alerts
 ntfy_base_url: http://localhost
+ntfy_alertmanager_user: ntfy-alertmanager
+ntfy_alertmanager_group: ntfy-alertmanager
