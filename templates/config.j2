@@ -92,7 +92,11 @@ alertmanager {
 # to avoid sending recurrences.
 cache {
     # The type of cache that will be used (either memory or redis; default is memory).
+{% if ntfy_alertmanager_redis_url is defined and ntfy_alertmanager_redis_url != '' %}
+    type redis
+{% else %}
     type memory
+{% endif %}
     # How long messages stay in the cache for
     duration 24h
 
