@@ -25,6 +25,10 @@ labels {
         tags "rotating_light"
     }
 
+    severity "warning" {
+        priority 3
+    }
+
     severity "info" {
         priority 1
     }
@@ -35,10 +39,10 @@ labels {
 }
 
 # Settings for resolved alerts
-#resolved {
-#    tags "resolved,partying_face"
+resolved {
+    tags "resolved,partying_face"
 #    icon "https://foo.com/resolved.png"
-#}
+}
 
 ntfy {
     # URL of the ntfy topic - required
